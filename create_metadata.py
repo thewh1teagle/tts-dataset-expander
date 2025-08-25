@@ -53,12 +53,13 @@ def main():
     src_folder = Path("saspeech_automatic_short")
     transcript_folder = src_folder / "transcripts_saspeech_automatic_short"
     transcript_files = sorted(transcript_folder.glob("*.json"), key=lambda x: int(x.stem))
+    # transcript_files = transcript_files[:200]
     dst_file = src_folder / "metadata.csv"
 
     with dst_file.open("w", encoding="utf-8", newline="") as out_f:
         # Run phonemize_record in parallel, order preserved
         # We have no time to wait
-        with ThreadPoolExecutor(max_workers=32) as ex:
+        with ThreadPoolExecutor(max_workers=16) as ex:
             results = list(
                 tqdm(
                     ex.map(phonemize_record, transcript_files),
