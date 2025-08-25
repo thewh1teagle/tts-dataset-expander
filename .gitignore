@@ -1,0 +1,8 @@
+__pycache__/
+venv/
+.venv/
+saspeech_automatic/
+saspeech_automatic_short/
+*.wav
+*.opus
+*.7z
