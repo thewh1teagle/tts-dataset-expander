@@ -6,3 +6,4 @@ saspeech_automatic_short/
 *.wav
 *.opus
 *.7z
+*.onnx
